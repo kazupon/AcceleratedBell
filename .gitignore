@@ -1,0 +1,14 @@
+.DS_Store
+*.xcodeproj/*.mode1v3
+*.xcodeproj/*.pbxuser
+*.xcodeproj/*.pbxproj
+*.xcodeproj/*.tm_build_errors
+*.xcodeproj/*.perspectivev3
+build
+
+.svn
+XcodeConfig
+.xcodeproj
+.mode1v3
+.pbxuser
+.pbxproj

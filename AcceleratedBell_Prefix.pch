@@ -1,0 +1,14 @@
+//
+// Prefix header for all source files of the 'AcceleratedBell' target in the 'AcceleratedBell' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+#endif
+
+#if !defined(NS_BLOCK_ASSERTIONS)
+	#define DEBUG(format, args...) NSLog([[NSString stringWithFormat:@"%@(%d) %@", [NSString stringWithUTF8String:__FILE__], __LINE__, [NSString stringWithUTF8String:__FUNCTION__], nil] stringByAppendingFormat:@" %@", [NSString stringWithFormat:format, ##args]])
+#else
+	#define DEBUG(format, args...)
+#endif
