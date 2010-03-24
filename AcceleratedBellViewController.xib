@@ -52,7 +52,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Label</string>
+						<string key="IBUIText">0 Ringing</string>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Helvetica</string>
 							<double key="NSSize">24</double>
@@ -92,8 +92,8 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<float key="IBUIValue">2.5</float>
-						<float key="IBUIMinValue">1</float>
+						<float key="IBUIValue">2.25</float>
+						<float key="IBUIMinValue">0.5</float>
 						<float key="IBUIMaxValue">4</float>
 					</object>
 					<object class="IBUILabel" id="848885597">
