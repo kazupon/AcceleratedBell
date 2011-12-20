@@ -1,10 +1,10 @@
-// 
+//
 //   AcceleratedBellViewController.m
 //   AcceleratedBell
-//   
+//
 //   Created by kazuya kawaguchi on 2010-03-14.
 //   Copyright 2010 kazuya kawaguchi. All rights reserved.
-// 
+//
 
 
 #import "AcceleratedBellViewController.h"
@@ -18,41 +18,41 @@
 
 
 - (NSURL *)fromURL:(NSString *)fileName type:(NSString *)typeName {
-    
-    NSString *fromPath = [[NSBundle mainBundle] pathForResource:fileName 
+
+    NSString *fromPath = [[NSBundle mainBundle] pathForResource:fileName
                                                 ofType:typeName];
     return [NSURL fileURLWithPath:fromPath];
-    
+
 }
 
 
-- (void)accelerometer:(UIAccelerometer *)accelerometer 
+- (void)accelerometer:(UIAccelerometer *)accelerometer
         didAccelerate:(UIAcceleration *)acceleration {
-    
+
     static BOOL detectingShake;
-    
+
     if(detectingShake) {
         DEBUG(@"Already Detect Shake.");
         return;
     }
-    
-    
+
+
     detectingShake = YES;
     double x = acceleration.x - lastX;
     double y = acceleration.y - lastY;
     double z = acceleration.z - lastZ;
-    
+
     double dist = DIST(x, y, z);
     if(fabs(dist) > sensitivityValue) {
         DEBUG(@"Detect Shake : dist = %f", dist);
         [player play];
-        labelCount.text = [NSString stringWithFormat:@"%d Ringing", 
+        labelCount.text = [NSString stringWithFormat:@"%d Ringing",
                                                      player.playCount, nil];
     }
-    
+
     detectingShake = NO;
-    
-    
+
+
     lastX = acceleration.x;
     lastY = acceleration.y;
     lastZ = acceleration.z;
@@ -67,15 +67,15 @@
 
 
 - (void)viewDidLoad {
-    
+
     [super viewDidLoad];
-    
+
     sensitivityValue = sliderSensitivity.value;
-    
+
     UIAccelerometer *accelerometer = [UIAccelerometer sharedAccelerometer];
     accelerometer.updateInterval = 1.0 / kUpdateFrequency;
     accelerometer.delegate = self;
-    
+
     NSURL *url = [self fromURL:@"bell" type:@"mp3"];
     player = [[BellPlayer alloc] initWithContentsOfURL:url];
     [player start];
@@ -83,16 +83,16 @@
 
 
 - (void)didReceiveMemoryWarning {
-    
+
     [super didReceiveMemoryWarning];
-    
+
 }
 
 
 - (void)dealloc {
-    
+
     [player release];
-    
+
     [super dealloc];
 }
 
