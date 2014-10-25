@@ -1,10 +1,10 @@
-// 
+//
 //   AccelerometerHighPassFilter.h
 //   AcceleratedBell
-//   
+//
 //   Created by kazuya kawaguchi on 2010-03-14.
 //   Copyright 2010 kazuya kawaguchi. All rights reserved.
-// 
+//
 
 
 #import <Foundation/Foundation.h>
